@@ -5,7 +5,7 @@ The Admin is able to allow other bloggers to post articles along with the publis
 
 Through this project I've used the Anaconda Prompt with django, and Anaconda Spyder django environment for editing. 
 
-#Quick start
+## Quick start
 1. Set up the Python development environment with `pip install Django`
 2. Creat a directory `Blog Project` and navigate to it
 3. Run the command in your shell to create the Django Project `django-admin startproject BlogProject`
