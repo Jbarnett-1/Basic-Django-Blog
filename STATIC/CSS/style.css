@@ -1,0 +1,30 @@
+h1 {
+  text-decoration: underline;
+  text-align: left;
+  color: black;
+}
+h2 {
+  text-align: left;
+  color: black;
+}
+body {
+  font-family: system-ui;
+  background: #ccccff;
+  text-align: left;
+  color: black;
+}
+
+ol {
+  list-style: none;
+  counter-reset: step-counter;
+  padding-inline-start: 25px;
+}
+ol > li {
+  counter-increment: step-counter;
+}
+ol > li:before {
+  content: counter(step-counter)".";
+  display: inline-block;
+  position: absolute;
+  margin-left: -25px;
+}

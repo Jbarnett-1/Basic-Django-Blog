@@ -1,0 +1,79 @@
+{% load static %}
+
+<!DOCTYPE html> 
+<html lang="en">
+
+<!-- Sidebar -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<body>
+
+<div class="w3-sidebar w3-bar-block w3-card w3-animate-left" style="display:none" id="mySidebar">
+  <button class="w3-bar-item w3-button w3-large"
+  onclick="w3_close()">Close &times;</button>
+  <a href="#" class="w3-bar-item w3-button">Running</a>
+  <a href="#" class="w3-bar-item w3-button">Gym Exercises</a>
+  <a href="#" class="w3-bar-item w3-button">Cooking</a>
+  <a href="#" class="w3-bar-item w3-button">Life & much more</a>
+</div>
+
+<div id="main">
+
+    <div class="w3-gray">
+      <button id="openNav" class="w3-button w3-grey w3-xlarge" onclick="w3_open()">&#9776;</button>
+      <div class="w3-container">
+        <h1>Home</h1>
+      </div>
+    </div>
+ 
+</div>
+
+<script>
+function w3_open() {
+  document.getElementById("mySidebar").style.display = "block";
+}
+
+function w3_close() {
+  document.getElementById("mySidebar").style.display = "none";
+}
+</script>
+
+<!-- Tab Title -->
+ <head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>Fitness & Lifestyle Blog</title> 
+   <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head> 
+
+<!-- Title of the page -->
+<body>
+     <header>
+       <h1> <a href="">Everything from running, cooking, and life in between</a> </h1>
+     </header>
+     
+ <div>
+   <h3> Why Running + Lifting? </h3>
+   <p>First, I can tell you about a training program on what <em> has worked </em> and what <em> didn't work</em> through my journey. </p> </div>
+   <ol> <li> Running Plan</li>
+     <li> Gym Program</li>
+     <li> Couch to 5K </li> 
+     <li> Road to half marathon </li>
+     <li> Marathon and Ultra marathons </li>
+   </ol>
+   
+     <div class="container">
+       {% block content %}
+         {% for i in object_list %}
+             <div class="article">
+             <h3><a href="{% url 'detail' i.pk %}">{{ i.title }}</a></h3>
+               <p>{{ i.body }}</p>
+            </div>
+         {% endfor %}
+        {% endblock content %}
+ </div>
+     
+
+</body> 
+</html>
